@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, NativeModules } from 'react-native';
 import styles from './styles'
 import { pickImage } from "../Component";
+const {TextRecognitionModule} = NativeModules
 
 export default class TextRecognition extends Component {
     state = { text: '' }
@@ -15,11 +16,17 @@ export default class TextRecognition extends Component {
 
     getText = async (path) => {
         let result = await new Promise((resolve, reject) => {
-            NativeModules.TextRecognition.getSourceImage({
+            Platform.OS === 'ios'
+            ? NativeModules.TextRecognition.getSourceImage({
                 imageSource: path,
             }, (source) => {
                 resolve(source)
-            });
+            })
+            : TextRecognitionModule.getSourceImage({
+                imageSource: path,
+            }, (source) => {
+                resolve(source)
+            })
         })
         this.setState({
             text: result
