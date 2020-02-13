@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "72669981134",
+    "firebase_url": "https://mlkit-2fbf6.firebaseio.com",
+    "project_id": "mlkit-2fbf6",
+    "storage_bucket": "mlkit-2fbf6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72669981134:android:59909487a3252db2d6639f",
+        "android_client_info": {
+          "package_name": "com.mlkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72669981134-uc74jhoedpi310avotf41tufe0vobete.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsajf47qIj7GagTmkQBkj3tz-DTL_cJIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72669981134-uc74jhoedpi310avotf41tufe0vobete.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "72669981134-kjpt0rp01ougio503574g4j7v60fmen4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AlishaNagpal.MLKit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
