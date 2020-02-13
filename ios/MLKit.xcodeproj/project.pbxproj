@@ -11,6 +11,8 @@
 		0C20EA2923F52C3500CEFD57 /* TextRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */; };
 		0C20EA2B23F52D1600CEFD57 /* TextRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA2A23F52D1600CEFD57 /* TextRecognition.m */; };
 		0C20EA2D23F5353900CEFD57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C20EA2C23F5353900CEFD57 /* GoogleService-Info.plist */; };
+		0C20EA3223F57FF300CEFD57 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA3123F57FF300CEFD57 /* FaceDetection.swift */; };
+		0C20EA3423F5800D00CEFD57 /* FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA3323F5800D00CEFD57 /* FaceDetection.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -52,6 +54,8 @@
 		0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
 		0C20EA2A23F52D1600CEFD57 /* TextRecognition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextRecognition.m; sourceTree = "<group>"; };
 		0C20EA2C23F5353900CEFD57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0C20EA3123F57FF300CEFD57 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
+		0C20EA3323F5800D00CEFD57 /* FaceDetection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceDetection.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MLKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MLKit/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MLKit/AppDelegate.m; sourceTree = "<group>"; };
@@ -144,7 +148,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		0C20EA2623F52C1800CEFD57 /* TextRecognition */ = {
+		0C20EA2623F52C1800CEFD57 /* MLKIT Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0C20EA3023F57FCC00CEFD57 /* TextRecognition */,
+				0C20EA2F23F57FB900CEFD57 /* FaceDetection */,
+			);
+			name = "MLKIT Modules";
+			sourceTree = "<group>";
+		};
+		0C20EA2F23F57FB900CEFD57 /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				0C20EA3123F57FF300CEFD57 /* FaceDetection.swift */,
+				0C20EA3323F5800D00CEFD57 /* FaceDetection.m */,
+			);
+			name = FaceDetection;
+			sourceTree = "<group>";
+		};
+		0C20EA3023F57FCC00CEFD57 /* TextRecognition */ = {
 			isa = PBXGroup;
 			children = (
 				0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */,
@@ -165,7 +187,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				0C20EA2623F52C1800CEFD57 /* TextRecognition */,
+				0C20EA2623F52C1800CEFD57 /* MLKIT Modules */,
 			);
 			name = MLKit;
 			sourceTree = "<group>";
@@ -506,12 +528,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MLKit/Pods-MLKit-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionFaceModel/GoogleMVFaceDetectorResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionTextModel/GoogleMVTextDetectorResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
@@ -574,6 +598,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C20EA3423F5800D00CEFD57 /* FaceDetection.m in Sources */,
+				0C20EA3223F57FF300CEFD57 /* FaceDetection.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				0C20EA2923F52C3500CEFD57 /* TextRecognition.swift in Sources */,
 				0C20EA2B23F52D1600CEFD57 /* TextRecognition.m in Sources */,

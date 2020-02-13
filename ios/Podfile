@@ -39,6 +39,7 @@ target 'MLKit' do
   pod 'Firebase/MLVision'  
   # If using an on-device API: 
   pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/MLVisionFaceModel'
 
   target 'MLKitTests' do
     inherit! :search_paths
