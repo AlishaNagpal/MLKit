@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MLKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MLKitTests.m */; };
-		0C20EA2523F52A5C00CEFD57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C20EA2423F52A5C00CEFD57 /* GoogleService-Info.plist */; };
 		0C20EA2923F52C3500CEFD57 /* TextRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */; };
+		0C20EA2B23F52D1600CEFD57 /* TextRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C20EA2A23F52D1600CEFD57 /* TextRecognition.m */; };
+		0C20EA2D23F5353900CEFD57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C20EA2C23F5353900CEFD57 /* GoogleService-Info.plist */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -47,9 +48,10 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MLKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLKitTests.m; sourceTree = "<group>"; };
 		03499F7C334EC3A1EA314D06 /* Pods-MLKit-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLKit-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MLKit-tvOSTests/Pods-MLKit-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		0C20EA2423F52A5C00CEFD57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C20EA2723F52C3400CEFD57 /* MLKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLKit-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
+		0C20EA2A23F52D1600CEFD57 /* TextRecognition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextRecognition.m; sourceTree = "<group>"; };
+		0C20EA2C23F5353900CEFD57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MLKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MLKit/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MLKit/AppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				0C20EA2823F52C3500CEFD57 /* TextRecognition.swift */,
 				0C20EA2723F52C3400CEFD57 /* MLKit-Bridging-Header.h */,
+				0C20EA2A23F52D1600CEFD57 /* TextRecognition.m */,
 			);
 			name = TextRecognition;
 			sourceTree = "<group>";
@@ -156,8 +159,8 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				0C20EA2423F52A5C00CEFD57 /* GoogleService-Info.plist */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				0C20EA2C23F5353900CEFD57 /* GoogleService-Info.plist */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -358,7 +361,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				0C20EA2523F52A5C00CEFD57 /* GoogleService-Info.plist in Resources */,
+				0C20EA2D23F5353900CEFD57 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,10 +507,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MLKit/Pods-MLKit-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionTextModel/GoogleMVTextDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -569,6 +576,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				0C20EA2923F52C3500CEFD57 /* TextRecognition.swift in Sources */,
+				0C20EA2B23F52D1600CEFD57 /* TextRecognition.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
