@@ -13,6 +13,7 @@ import Firebase
 @objc(FaceDetection)
 class FaceDetection: NSObject {
   lazy var vision = Vision.vision()
+  var resultFace = [String]()
   
   @objc func getSourceImage(_ trackinfo: NSDictionary,callback: @escaping RCTResponseSenderBlock) -> Void{
   guard let infoDictionary = trackinfo as? [String: Any] else {return}
@@ -27,17 +28,20 @@ class FaceDetection: NSObject {
       
       faceDetector.process(image) { faces, error in
         guard error == nil, let faces = faces, !faces.isEmpty else {return}
-        
-      }
-//      let seconds = 0.1;
-//      DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-//        callback([resultText])
-//      }
-      
-        
-      
+        for face in faces {
+        let frame = face.frame
+          guard let cutImageRef: CGImage = result.cgImage?.cropping(to:frame)
+          else {return}
+          let croppedImage: UIImage = UIImage(cgImage: cutImageRef)
+          var callBackURL = self.save(image: croppedImage)
+          print(callBackURL)
+          self.resultFace.append(callBackURL!)
+        }
+        let seconds = 0.1;
+          DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            callback([self.resultFace])}
+        }
     })
-    
   }
   
   @objc
@@ -53,6 +57,28 @@ class FaceDetection: NSObject {
         print("Not able to load image")
       }
     }
+  }
+  
+  private func save(image: UIImage) -> String? {
+    let fileName = UUID().uuidString+".JPG";
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let folderURL = documentsURL.appendingPathComponent("SaveFillterImage")
+    if !FileManager.default.fileExists(atPath: folderURL.path) {
+      do {
+        try FileManager.default.createDirectory(atPath: folderURL.path, withIntermediateDirectories: true, attributes: nil)
+      }
+      catch {}
+    }
+    let fileURL = folderURL.appendingPathComponent(fileName)
+    let data =  image.jpegData(compressionQuality: 0.75)
+    do {
+      try data!.write(to: fileURL)
+      
+      return fileURL.absoluteString
+    }
+    catch {}
+    
+    return fileURL.absoluteString
   }
   
   

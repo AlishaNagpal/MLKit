@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#205c64',
         alignSelf: 'center',
-        marginTop: 100
+        marginTop: 100,
+        marginBottom:100
     },
-    recognisedText: {
-        fontSize: 20,
-        color: '#205c64',
-        alignSelf: 'center',
-        marginTop: 100
+    imageStyle: {
+        height: 100,
+        width: 100,
+        margin:20
     }
 })
 

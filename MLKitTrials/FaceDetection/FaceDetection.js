@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, NativeModules } from 'react-native';
+import { View, Text, TouchableOpacity, NativeModules, FlatList, Image } from 'react-native';
 import styles from './styles'
 import { pickImage } from "../Component";
 
-export default class TextRecognition extends Component {
-    state = { text: '' }
+export default class FaceDetection extends Component {
+    state = { data: [], showImages: false }
 
     recogniseText = () => {
         pickImage.getSinglePic((response) => {
@@ -14,31 +14,47 @@ export default class TextRecognition extends Component {
     }
 
     getText = async (path) => {
+        this.setState({data: [] })
         let result = await new Promise((resolve, reject) => {
-            Platform.OS === 'ios'
-            ? NativeModules.TextRecognition.getSourceImage({
-                imageSource: path,
-            }, (source) => {
-                resolve(source)
-            })
-            : TextRecognitionModule.getSourceImage({
+            NativeModules.FaceDetection.getSourceImage({
                 imageSource: path,
             }, (source) => {
                 resolve(source)
             })
         })
         this.setState({
-            text: result
+            data: result,
+            showImages: true
         })
+    }
+
+    renderDATA = (rowDATA) => {
+        const { item } = rowDATA
+        return (
+            <View>
+                <Image
+                    source={{uri:item }}
+                    style={styles.imageStyle}
+                />
+            </View>
+        )
     }
 
     render() {
         return (
             <View style={styles.mainView}>
-                <TouchableOpacity >
-                 {/* onPress={this.recogniseText} */}
+                <TouchableOpacity
+                    onPress={this.recogniseText} >
                     <Text style={styles.textStyle}> Process an Image for Face Detection! </Text>
                 </TouchableOpacity>
+                {this.state.showImages &&
+                    <FlatList
+                        keyExtractor={(item, index) => (item + index).toString()}
+                        data={this.state.data}
+                        renderItem={this.renderDATA}
+                        horizontal
+                    />
+                }
             </View>
         );
     }
