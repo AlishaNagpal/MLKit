@@ -14,14 +14,21 @@ export default class FaceDetection extends Component {
     }
 
     getText = async (path) => {
-        this.setState({data: [] })
+        this.setState({ data: [] })
         let result = await new Promise((resolve, reject) => {
-            NativeModules.FaceDetection.getSourceImage({
-                imageSource: path,
-            }, (source) => {
-                resolve(source)
-            })
+            Platform.OS === 'ios'
+                ? NativeModules.FaceDetection.getSourceImage({
+                    imageSource: path,
+                }, (source) => {
+                    resolve(source)
+                })
+                : NativeModules.FaceDetectionModule.getSourceImage({
+                    imageSource: path,
+                }, (source) => {
+                    resolve(source)
+                })
         })
+        console.warn(result)
         this.setState({
             data: result,
             showImages: true
@@ -33,7 +40,7 @@ export default class FaceDetection extends Component {
         return (
             <View>
                 <Image
-                    source={{uri:item }}
+                    source={{ uri: item }}
                     style={styles.imageStyle}
                 />
             </View>
